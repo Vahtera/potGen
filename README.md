@@ -21,3 +21,6 @@ For use in tabletop games, writing, or just for fun.
 ```
 >[!NOTE]
 >Requires Pyhton3 and PyHyphen
+
+Screenshot of potGen output:
+![Screenshot of potGen](https://imgur.com/9hBvDin.png)
