@@ -26,6 +26,7 @@
   <ItemGroup>
     <Content Include="english_adjectives.txt" />
     <Content Include="english_nouns.txt" />
+    <Content Include="english_verbs_past.txt" />
     <Content Include="english_verbs.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />

@@ -3,6 +3,7 @@
 # Author: Anna Vahtera, Copyright (c) 2025
 #
 # Version History:
+# Version: 1.3.2a - Added support for past tense verbs.
 # Version: 1.3.1a - Refined multi-combination support. Added support for "WordWord" and "VerbWordWord" combinations.
 # Version: 1.3.0a - Added support for different word combinations.
 # Version: 1.2.3a - Refined grammar check for "ing" form of verbs. Will remain unfinished, since there's no way to check syllable stress in English.
@@ -77,6 +78,7 @@ numPotions = setNumPotions() # Set the Number of Entries to Create
 fileName = "english_nouns.txt" # File Name to Read the Words from
 adjFileName = "english_adjectives.txt" # File Name to Read the Adjectives from
 vrbFileName = "english_verbs.txt" # File Name to Read the Verbs from
+pstVerbFileName = "english_verbs_past.txt" # File Name to Read the Past Tense Verbs from"
 
 arrVowels = ["a", "e", "i", "o", "u"] # Array of Vowels to Check Against
 arrConsonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z"] # Array of Consonants to Check Against
@@ -97,8 +99,8 @@ with open(adjFileName, "r", encoding="utf-8") as f: # Open the File and Read the
 with open(vrbFileName, "r", encoding="utf-8") as f: # Open the File and Read the Lines into an Array
     arrVerb = [line.strip() for line in f]
 
-# for l in range (len(arrWord)): # Concate the Adjective and Word Lists
-#    arrAdjective.append(arrWord[l])
+with open(pstVerbFileName, "r", encoding="utf-8") as f: # Open the File and Read the Lines into an Array
+    arrPastVerb = [line.strip() for line in f]
 
 # Print the Legend
 print(BLACK + BOLD + "Legend: " + ENDC + WHITE + "Diluted" + ", " + ENDC + CYAN + "Mild" + ENDC + ", " + GREEN + "Moderate" + ENDC + ", " + YELLOW + "Strong" + ENDC + ", " + RED + "Very Strong" + ENDC + "\n")
@@ -112,10 +114,15 @@ for l in range(numPotions):   # Loop through the Number of Entries to Create and
     valWord2 = arrWord[random.randint(0, (len(arrWord)-1))]
     valColor = arrColors[random.randint(0, (len(arrColors)-1))]
     valVerb = arrVerb[random.randint(0, (len(arrVerb)-1))]
+    valPastVerb = arrPastVerb[random.randint(0, (len(arrPastVerb)-1))]
     valWordComb = arrWordCombination[random.randint(0, (len(arrWordCombination)-1))]
-    
-    lWord = [] # List to Store the Word    
-    finVerb = ingForm(valVerb) # Get the "ing" Form of the Verb
+    lWord = [] # List to Store the Word 
+
+    verbForm = random.randint(0, 1) # Randomly Select the Verb Form
+    if verbForm == 0: # If the Verb Form is 0, Use the Past Tense
+        finVerb = valPastVerb
+    else: # Otherwise, Use the "ing" Form
+        finVerb = ingForm(valVerb) # Get the "ing" Form of the Verb
 
     WORD = valWord.capitalize()
     WORD2 = valWord2.capitalize()
