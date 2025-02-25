@@ -52,7 +52,7 @@ attain
 attempt
 attend
 attract
-audited
+audit
 avoid
 awake
 back
@@ -492,7 +492,7 @@ level
 license
 lick
 lie
-lifted
+lift
 light
 lighten
 like
@@ -630,7 +630,7 @@ possess
 post
 pour
 practice
-praised
+praise
 pray
 preach
 precede
@@ -724,7 +724,7 @@ rescue
 research
 resolve
 respond
-restored
+restore
 restructure
 retire
 retrieve
