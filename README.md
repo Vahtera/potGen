@@ -4,8 +4,7 @@ Author: Anna Vahtera, Copyright (c) 2025
 
 Version History:
 Version: 1.3.2a - Added support for past tense verbs.
-Version: 1.3.1a - Refined multi-combination support. Added support for "WordWord" and "VerbWordWord" combinations.
-Version: 1.3.1a - Refined multi-combination support. Added support for "WordWord" and "VerbWordWord" combinations.
+Version: 1.3.1a - Added support for more combinations.
 Version: 1.3.0a - Added support for different word combinations.
 Version: 1.2.3a - Refined grammar check for "ing" form of verbs.
 Version: 1.2.2a - Added Syllable Counting for Verbs (PyHyphen)
