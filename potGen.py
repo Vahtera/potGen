@@ -20,9 +20,7 @@
 import random
 import string
 import sys
-from hyphen import Hyphenator # Import the Hyphenator Module for Syllable Counting
 from libAnna.anna import openFile, clearScreen
-h_en = Hyphenator('en_US') # Set the Hyphenator to English
 random.seed()
 arguments = len(sys.argv) # Get Number of Arguments Passed to the Script
 
@@ -51,34 +49,10 @@ def setNumPotions(): # Set Number of Entries to create
     else:
         return 5
 
-# Function to Generate the "ing" Form of the Verb
-def ingForm(s):
-    for x in s:
-        lWord.append(x)
-    if lWord[len(lWord)-1]=='e' and lWord[len(lWord)-2]!='i': # If the Last Letter is an 'e' and the Second to Last Letter is not an 'i'
-        del lWord[len(lWord)-1] # Delete the Last Letter
-        lWord.append("ing")
-    elif lWord[len(lWord)-1]=='e' and lWord[len(lWord)-2]=='i': # If the Last Letter is an 'e' and the Second to Last Letter is an 'i'
-        del lWord[len(lWord)-1]
-        del lWord[len(lWord)-1]
-        lWord.append("ying")
-    elif lWord[len(lWord)-2] in 'aeiou' and lWord[len(lWord)-1] in arrDoublingConsonants and len(h_en.syllables(s)) < 2 and len(lWord) < 5: # If the Last Letter is a Consonant and the Second to Last Letter is a Vowel and the Syllable Count is Less than 2 and the Word is Less than 5 Letters
-        #tWord = lWord[len(lWord)-1] # Store the Last Letter
-        # del lWord[len(lWord)-1]
-        # lWord.append(tWord)
-        lWord.append(lWord[len(lWord)-1])
-        lWord.append("ing")
-    elif lWord[len(lWord)-1] in 'aeiouy': # If the Last Letter is a Vowel
-        lWord.append("ing")
-    else:
-        lWord.append("ing")
-    return "".join(lWord)
-
-
 numPotions = setNumPotions() # Set the Number of Entries to Create
 fileName = "english_nouns.txt" # File Name to Read the Words from
 adjFileName = "english_adjectives.txt" # File Name to Read the Adjectives from
-vrbFileName = "english_verbs.txt" # File Name to Read the Verbs from
+vrbFileName = "english_verbs_ing.txt" # File Name to Read the Verbs from
 pstVerbFileName = "english_verbs_past.txt" # File Name to Read the Past Tense Verbs from"
 
 arrVowels = ["a", "e", "i", "o", "u"] # Array of Vowels to Check Against
@@ -118,7 +92,7 @@ for l in range(numPotions):   # Loop through the Number of Entries to Create and
     if verbForm == 0: # If the Verb Form is 0, Use the Past Tense
         finVerb = valPastVerb
     else: # Otherwise, Use the "ing" Form
-        finVerb = ingForm(valVerb) # Get the "ing" Form of the Verb
+        finVerb = valVerb # Get the "ing" Form of the Verb
 
     WORD = valWord.capitalize()
     WORD2 = valWord2.capitalize()
