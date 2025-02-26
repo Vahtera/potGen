@@ -4,6 +4,7 @@
 # Author: Anna Vahtera, Copyright (c) 2025
 #
 # Version History:
+# Version: 1.3.4 - Changed to using libAnna and Python coding standards.
 # Version: 1.3.3a - Removed the need for PyHyphen and changed into using a pre-formatted list.
 # Version: 1.3.2a - Added support for past tense verbs.
 # Version: 1.3.1a - Refined multi-combination support. Added support for more combinations.
