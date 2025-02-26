@@ -3,6 +3,7 @@ Title: Potion Generator
 Author: Anna Vahtera, Copyright (c) 2025
 
 Version History:
+Version: 1.3.3a - Removed the need for PyHyphen and changed into using a pre-formatted list.
 Version: 1.3.2a - Added support for past tense verbs.
 Version: 1.3.1a - Added support for more combinations.
 Version: 1.3.0a - Added support for different word combinations.
@@ -19,7 +20,7 @@ Description: This script generates random potion names using a list of adjective
 For use in tabletop games, writing, or just for fun.
 ```
 >[!NOTE]
->Requires Pyhton3 and PyHyphen
+>Requires Python3
 
 Screenshot of potGen output:
 ![Screenshot of potGen](https://imgur.com/9hBvDin.png)
