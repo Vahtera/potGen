@@ -21,6 +21,7 @@ import random
 import string
 import sys
 from hyphen import Hyphenator # Import the Hyphenator Module for Syllable Counting
+from libAnna.anna import openFile, clearScreen
 h_en = Hyphenator('en_US') # Set the Hyphenator to English
 random.seed()
 arguments = len(sys.argv) # Get Number of Arguments Passed to the Script
@@ -90,17 +91,12 @@ arrColors = [WHITE, CYAN, YELLOW, GREEN, RED] # Array of Colors to Choose from
 arrContain = ["vial", "bottle", "potion", "flask", "ampoule", "ewer", "jar", "jug", "cup", "mug", "dose", "can", "chalice", "copita", "bowl", "goblet", "phial", "beaker", "carafe", "cruet", "decanter", "flagon", "gourd", "horn", "pewter", "porringer", "pot", "tankard", "tumbler", "urn", "vase", "vessel", "glass", "cask", "keg", "barrel", "canteen", "skin", "waterskin", "wineskin", "flagon"] # Array of Containers to Choose from
 arrLiquid = ["juice", "sap", "fluid", "solution", "broth", "goop", "nectar", "elixir", "resin", "infusion", "essence", "brew", "drink", "concotion", "mixture", "beverage", "extract", "jelly", "soup", "oil", "syrup", "tonic", "tincture", "serum", "dew", "salve", "cream", "paste", "ointment", "balm", "lotion", "gel", "emulsion"] # Array of Liquids to Choose from
 
-with open(fileName, "r", encoding="utf-8") as f: # Open the File and Read the Lines into an Array
-    arrWord = [line.strip() for line in f]
+arrWord = openFile(fileName)
+arrAdjective = openFile(adjFileName)
+arrVerb = openFile(vrbFileName)
+arrPastVerb = openFile(pstVerbFileName)
 
-with open(adjFileName, "r", encoding="utf-8") as f: # Open the File and Read the Lines into an Array
-    arrAdjective = [line.strip() for line in f]
-
-with open(vrbFileName, "r", encoding="utf-8") as f: # Open the File and Read the Lines into an Array
-    arrVerb = [line.strip() for line in f]
-
-with open(pstVerbFileName, "r", encoding="utf-8") as f: # Open the File and Read the Lines into an Array
-    arrPastVerb = [line.strip() for line in f]
+clearScreen()
 
 # Print the Legend
 print(BLACK + BOLD + "Legend: " + ENDC + WHITE + "Diluted" + ", " + ENDC + CYAN + "Mild" + ENDC + ", " + GREEN + "Moderate" + ENDC + ", " + YELLOW + "Strong" + ENDC + ", " + RED + "Very Strong" + ENDC + "\n")
