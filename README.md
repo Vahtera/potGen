@@ -20,7 +20,7 @@ Description: This script generates random potion names using a list of adjective
 For use in tabletop games, writing, or just for fun.
 ```
 >[!NOTE]
->Requires Pyhton3
+>Requires Python3
 
 Screenshot of potGen output:
 ![Screenshot of potGen](https://imgur.com/9hBvDin.png)
