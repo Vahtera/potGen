@@ -28,13 +28,13 @@ from libAnna.functions import open_file, clear_screen
 from libAnna.colors import *
 
 random.seed()
-arguments = len(sys.argv) # Get Number of Arguments Passed to the Script
+ARGUMENTS = len(sys.argv) # Get Number of Arguments Passed to the Script
 
 def set_num_potions():
     '''Set Number of Entries to create'''
     t = 0
-    if arguments > 1: # Check if Number of Entries is Passed as an Argument
-        for i in range(1, arguments):
+    if ARGUMENTS > 1: # Check if Number of Entries is Passed as an Argument
+        for i in range(1, ARGUMENTS):
             if sys.argv[i].isnumeric():
                 t = int(sys.argv[i])
 
@@ -82,35 +82,35 @@ print(BLACK + BOLD + "Legend: " + ENDC + WHITE + "Diluted" + ", " + ENDC + CYAN 
 
 for l in range(NUM_POTIONS):   # Loop through the Number of Entries to Randomly Select a Word
     # Randomly Select a Container, Adjective, Word, Liquid, and Color
-    val_contain = ARR_CONTAIN[random.randint(0, (len(ARR_CONTAIN)-1))]
-    val_adjective = ARR_ADJECTIVE[random.randint(0, (len(ARR_ADJECTIVE)-1))]
-    val_liquid = ARR_LIQUID[random.randint(0, (len(ARR_LIQUID)-1))]
-    val_word = ARR_WORD[random.randint(0, (len(ARR_WORD)-1))]
-    val_word2 = ARR_WORD[random.randint(0, (len(ARR_WORD)-1))]
-    val_color = ARR_COLORS[random.randint(0, (len(ARR_COLORS)-1))]
-    val_verb = ARR_VERB[random.randint(0, (len(ARR_VERB)-1))]
-    val_past_verb = ARR_PAST_VERB[random.randint(0, (len(ARR_PAST_VERB)-1))]
-    val_word_comb = ARR_WORD_COMBINATION[random.randint(0, (len(ARR_WORD_COMBINATION)-1))]
-    l_word = [] # List to Store the Word
+    VAL_CONTAIN = ARR_CONTAIN[random.randint(0, (len(ARR_CONTAIN)-1))]
+    VAL_ADJECTIVE = ARR_ADJECTIVE[random.randint(0, (len(ARR_ADJECTIVE)-1))]
+    VAL_LIQUID = ARR_LIQUID[random.randint(0, (len(ARR_LIQUID)-1))]
+    VAL_WORD = ARR_WORD[random.randint(0, (len(ARR_WORD)-1))]
+    VAL_WORD2 = ARR_WORD[random.randint(0, (len(ARR_WORD)-1))]
+    VAL_COLOR = ARR_COLORS[random.randint(0, (len(ARR_COLORS)-1))]
+    VAL_VERB = ARR_VERB[random.randint(0, (len(ARR_VERB)-1))]
+    VAL_PAST_VERB = ARR_PAST_VERB[random.randint(0, (len(ARR_PAST_VERB)-1))]
+    VAL_WORD_COMB = ARR_WORD_COMBINATION[random.randint(0, (len(ARR_WORD_COMBINATION)-1))]
+    L_WORD = [] # List to Store the Word
 
-    verb_form = random.randint(0, 1) # Randomly Select the Verb Form
-    if verb_form == 0: # If the Verb Form is 0, Use the Past Tense
-        fin_verb = val_past_verb
+    VERB_FORM = random.randint(0, 1) # Randomly Select the Verb Form
+    if VERB_FORM == 0: # If the Verb Form is 0, Use the Past Tense
+        FIN_VERB = VAL_PAST_VERB
     else: # Otherwise, Use the "ing" Form
-        fin_verb = val_verb # Get the "ing" Form of the Verb
+        FIN_VERB = VAL_VERB # Get the "ing" Form of the Verb
 
-    WORD = val_word.capitalize()
-    WORD2 = val_word2.capitalize()
-    ADJECTIVE = val_adjective.capitalize()
-    VERB = fin_verb.capitalize()
-    LIQUID = val_liquid.capitalize()
-    CONTAINER = val_contain.capitalize()
+    WORD = VAL_WORD.capitalize()
+    WORD2 = VAL_WORD2.capitalize()
+    ADJECTIVE = VAL_ADJECTIVE.capitalize()
+    VERB = FIN_VERB.capitalize()
+    LIQUID = VAL_LIQUID.capitalize()
+    CONTAINER = VAL_CONTAIN.capitalize()
     _EOL = " " + LIQUID + ENDC # End of Line
-    _SOL = BLACK + BOLD + str(l+1).rjust(4, " ") + ": " + ENDC + val_color + CONTAINER + \
+    _SOL = BLACK + BOLD + str(l+1).rjust(4, " ") + ": " + ENDC + VAL_COLOR + CONTAINER + \
         " of " + BOLD # Start of Line
 
     # Print the Potion Name
-    match(val_word_comb): # Select the Word Combination to Print
+    match(VAL_WORD_COMB): # Select the Word Combination to Print
         case "Word":
             print(_SOL + WORD + NOBOLD + _EOL)
         case "AdjWord":
